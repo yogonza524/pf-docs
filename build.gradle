@@ -1,0 +1,109 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.1'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.github.sherter.google-java-format' version '0.9'
+    id 'io.codearte.nexus-staging' version '0.11.0'
+}
+apply plugin: 'com.bmuschko.nexus'
+
+archivesBaseName = 'pf-docs'
+group = "io.github.yogonza524"
+version = "0.0.1"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    // Use JUnit Jupiter API for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+
+    // Logs
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.30'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    // Resilience4J
+    compile "io.github.resilience4j:resilience4j-retry:1.6.1"
+
+    // Jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.1'
+
+    // Apache commons
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+modifyPom {
+    project {
+        name 'pf-docs'
+        description 'Path Finder data translated to Spanish'
+        url 'https://github.com/yogonza524/pf-docs'
+        inceptionYear '2020'
+
+        scm {
+            url 'https://github.com/yogonza524/pf-docs/tree/master/'
+            connection 'sscm:git:git://github.com/yogonza524/pf-docs.git'
+            developerConnection 'scm:git:ssh://github.com/yogonza524/pf-docs.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'yogonza524'
+                name 'Gonzalo H. Mendoza'
+                email 'yogonza524@gmail.com'
+
+            }
+        }
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = true
+    javadoc = true
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
+}
+
+nexusStaging {
+    packageGroup = "io.github.yogonza524"
+}
