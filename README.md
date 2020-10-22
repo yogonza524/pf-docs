@@ -59,7 +59,7 @@ PathFinder.razasPF()
     .forEach(System.out::println);
 ```
 
-5. Show description of a race
+5. Show Matrix of classes
 ```java
 PathFinder.clasesMatriz(); // Get the Matrix classes 
 ```
