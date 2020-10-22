@@ -13,7 +13,7 @@ To add as dependency using Maven, you should have at ```pom.xml```:
 <dependency>
   <groupId>io.github.yogonza524</groupId>
   <artifactId>pf-docs</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation "io.github.yogonza524:pf-docs:0.0.1"
+    implementation "io.github.yogonza524:pf-docs:0.0.2"
 }
 ```
 

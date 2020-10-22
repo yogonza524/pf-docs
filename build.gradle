@@ -20,7 +20,9 @@ apply plugin: 'com.bmuschko.nexus'
 
 archivesBaseName = 'pf-docs'
 group = "io.github.yogonza524"
-version = "0.0.1"
+version = "0.0.2"
+
+sourceCompatibility = "1.8"
 
 repositories {
     jcenter()
