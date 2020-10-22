@@ -1,11 +1,14 @@
 [![Maven Artifact](https://img.shields.io/nexus/r/io.github.yogonza524/pf-docs?server=https%3A%2F%2Foss.sonatype.org)](https://mvnrepository.com/artifact/io.github.yogonza524/pf-docs)
 ![Code size](https://img.shields.io/github/languages/code-size/yogonza524/pf-docs)
-# Path Finder Doc SDK (Spanish)
-Simple API for RPG game Path Finder
+# Path Finder Game Docs SDK (Spanish)
+Simple API for Path Finder game
 
 ## Disclaimer
 This development use third party translation. Use it under your own risk. 
 We don't take any responsability for your usage
+
+## Requirements
+- JDK 8+
 
 ## Add to your project
 To add as dependency using Maven, you should have at ```pom.xml```:
