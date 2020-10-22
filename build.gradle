@@ -20,7 +20,7 @@ apply plugin: 'com.bmuschko.nexus'
 
 archivesBaseName = 'pf-docs'
 group = "io.github.yogonza524"
-version = "0.0.2"
+version = "0.0.3"
 
 sourceCompatibility = "1.8"
 

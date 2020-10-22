@@ -66,3 +66,18 @@ PathFinder.razasPF()
 ```java
 PathFinder.clasesMatriz(); // Get the Matrix classes 
 ```
+
+6. Classes of prestige
+```java
+PathFinder.clasesPFF().stream().forEach(System.out::println); 
+```
+
+7. Get a class of prestige
+```java
+PathFinder.clasesPFF().get(0).card(true).forEach(System.out::println); 
+```
+
+8. Arquetipo info
+```java
+PathFinder.arquetipoInfo().forEach(System.out::println); 
+```
