@@ -116,7 +116,7 @@ public class PathFinder {
                 String a = row.selectFirst("a").attr("abs:href");
                 return RazaPF.builder()
                     .link(a)
-                    .description(row.text())
+                    .description(row.parent().text())
                     .thumbnail(row.select("img").attr("abs:src"))
                     .build();
               })
